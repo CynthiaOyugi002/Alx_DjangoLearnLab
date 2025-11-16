@@ -25,15 +25,13 @@ class CustomUser(AbstractUser):
     # Fix reverse accessor clashes
     groups = models.ManyToManyField(
         Group,
-        related_name='customuser_set',  # change related_name
-        blank=True,
-        help_text='The groups this user belongs to.'
+        related_name='customuser_set',
+        blank=True
     )
     user_permissions = models.ManyToManyField(
         Permission,
-        related_name='customuser_set',  # change related_name
-        blank=True,
-        help_text='Specific permissions for this user.'
+        related_name='customuser_set',
+        blank=True
     )
 
     objects = CustomUserManager()
